@@ -1,0 +1,21 @@
+php artisan infyom:scaffold LessonSession --prefix=admin  
+##to trigger the database process
+
+php artisan infyom:rollback Invoice scaffold --prefix=admin
+##to rollback your changes
+
+NOTE --prefix=admin this will make it such that an admin folder is created
+
+vendor\infyomlabs\laravel-generator\src\Commands\Publish\PublishTablesCommand.php:41
+change spells here
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+##layouts data tables js to see records
+
+##bootstrap font change to menu
+<i class="nav-icon fas fa-file-alt text-yellow"></i>
+
+https://demo.learnsoftschoolerp.co.ke/
+demo erp
+
+https://showcase.apryse.com/

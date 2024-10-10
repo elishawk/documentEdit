@@ -1,0 +1,27 @@
+ <canvas id="canvas" width="800" height="600" class="border border-gray-300 rounded-lg shadow-lg mx-auto my-10"></canvas>
+
+
+// import { fabric } from 'fabric';
+
+// Initialize the Fabric.js canvas
+const canvas = new fabric.Canvas('canvas');
+
+// Add a rectangle to the canvas
+const rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    fill: 'red',
+    width: 200,
+    height: 100,
+});
+
+canvas.add(rect); // Add rectangle to the canvas
+
+// Make the rectangle draggable
+rect.set({
+    selectable: true
+});
+
+canvas.renderAll(); // Render the changes
+
+<script src="./lib/fabric.min.js"></script>

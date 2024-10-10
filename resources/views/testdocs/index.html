@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Annotation with Fabric.js and PDF.js</title>
+    <link href="./input.css" rel="stylesheet"> <!-- Ensure correct Tailwind path -->
+    <style>
+        .canvas-container {
+            position: relative;
+        }
+        #pdf-canvas, #fabric-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold mb-4">PDF Annotation Tool</h1>
+
+        <!-- File Input -->
+        <input type="file" id="pdf-file-input" accept="application/pdf" class="mb-4 p-2 border border-gray-300 rounded">
+
+        <!-- Canvas Wrapper with Relative Position -->
+        <div class="canvas-container mb-4" style="border: 1px solid #ccc;">
+            <!-- PDF Canvas -->
+            <canvas id="pdf-canvas"></canvas>
+            <!-- Fabric Canvas (Overlayed) -->
+            <canvas id="fabric-canvas"></canvas>
+        </div>
+
+        <!-- Annotation Buttons -->
+        <div class="flex space-x-4 mb-4">
+            <button id="draw-button" class="px-4 py-2 bg-blue-500 text-white rounded">Draw</button>
+            <button id="erase-button" class="px-4 py-2 bg-red-500 text-white rounded">Erase</button>
+        </div>
+
+        <!-- Save Button -->
+        <button id="save" class="px-4 py-2 bg-green-500 text-white rounded">Save PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="./lib/fabric.min.js"></script>
+    <script src="./index.js"></script> <!-- Your custom JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+</body>
+</html>
