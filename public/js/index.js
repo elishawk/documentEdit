@@ -53,19 +53,19 @@ document.getElementById('pdf-file-input').addEventListener('change', (event) => 
 
 // Set default to free drawing mode (drawing functionality)
 fabricCanvas.isDrawingMode = true; // Enables free drawing mode by default
-fabricCanvas.freeDrawingBrush.color = "blue"; // Set brush color
-fabricCanvas.freeDrawingBrush.width = 5; // Set brush width
+fabricCanvas.freeDrawingBrush.color = "blue"; // Set default brush color
+fabricCanvas.freeDrawingBrush.width = 5; // Set default brush width
 
 // Draw button functionality
 document.getElementById('draw-button').addEventListener('click', () => {
     fabricCanvas.isDrawingMode = true; // Enable drawing mode
-    fabricCanvas.freeDrawingBrush.color = "blue"; // Set drawing color
-    fabricCanvas.freeDrawingBrush.width = 5; // Set drawing brush size
+    document.getElementById('brush-settings').style.display = 'block'; // Show brush settings
 });
 
 // Erase button functionality
 document.getElementById('erase-button').addEventListener('click', () => {
     fabricCanvas.isDrawingMode = false; // Disable drawing mode
+    document.getElementById('brush-settings').style.display = 'none'; // Hide brush settings
 
     // Enable object selection and allow removing drawings
     fabricCanvas.on('mouse:down', function (event) {
@@ -74,6 +74,18 @@ document.getElementById('erase-button').addEventListener('click', () => {
             fabricCanvas.remove(activeObject); // Erase selected object
         }
     });
+});
+
+// Handle brush width change
+document.getElementById('brush-width-slider').addEventListener('input', (event) => {
+    const newWidth = event.target.value;
+    fabricCanvas.freeDrawingBrush.width = parseInt(newWidth); // Update brush width
+});
+
+// Handle brush color change
+document.getElementById('color-picker').addEventListener('input', (event) => {
+    const newColor = event.target.value;
+    fabricCanvas.freeDrawingBrush.color = newColor; // Update brush color
 });
 
 // Save the annotated canvas as a PDF
